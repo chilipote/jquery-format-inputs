@@ -18,6 +18,35 @@ In your web page:
 <script src="jquery.js"></script>
 <script src="dist/format-your-input.min.js"></script>
 <script>
+
+  /**
+   * phoneNumber : {
+   *   // to know how to format
+   *   format      : 'xxx-xxx-xxxx',
+   *
+   *   // to construct your own regex
+   *   replaceChar : 'x',
+   *
+   *   // to construct your own regex, choose your delimiter
+   *   delimiter   : '-',
+   *
+   *   // accept only numbers ?
+   *   numbersOnly : true // 123-123-1234 or 123-123-DEMO
+   * },
+   *
+   * creditCard : {
+   *   format      : 'xxxx-xxxx-xxxx-xxxx',
+   *   replaceChar : 'x',
+   *   delimiter   : ' '
+   * },
+   *
+   * zipCode : {
+   *   format      : 'xxx-xxx',
+   *   replaceChar : 'x',
+   *   delimiter   : ' '
+   * }
+   **/
+
   jQuery(function ($) {
     $('.js-format-me').formatInputs();
   });
