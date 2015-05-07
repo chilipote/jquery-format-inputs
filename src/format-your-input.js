@@ -20,7 +20,7 @@
     var defaults = {
       phoneNumber : {
         // to know how to format
-        format      : 'x-xx---x',
+        format      : 'xxx-xxx-xxxx',
 
         // to construct your own regex
         replaceChar : 'x',
@@ -76,15 +76,21 @@
       var valueFormatted = '',
           decade = 0;
 
+      // 1234567
+      //
+      // 123-4
+      // 123--45
+      // 123--45-6
+      // 123--45--67
       for(var i = 0; i < options.format.length && i < value.length; i++) {
         if(options.format[parseInt(i)] === options.replaceChar) {
-
           if(options.numbersOnly) {
-            valueFormatted += parseInt(value[i]) ? parseInt(value[i]) : '';
+            valueFormatted += value[i] == parseInt(value[i], 10) ? value[i] : '';
           } else {
             valueFormatted += value[i];
           }
-
+        } else if(value[i] === options.delimiter) {
+          valueFormatted += value[i];
         } else {
           valueFormatted += options.delimiter + value[i];
           decade = decade + 1;
