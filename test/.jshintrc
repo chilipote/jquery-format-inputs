@@ -28,6 +28,11 @@
     "notDeepEqual",
     "strictEqual",
     "notStrictEqual",
-    "throws"
-  ]
+    "throws",
+    "expect"
+  ],
+
+  "globals" : {
+      "jQuery": true
+  }
 }

@@ -12,7 +12,8 @@
     var cons = {
       formatType : {
         phoneNumber : 'phone-number',
-        creditCard  : 'credit-card'
+        creditCard  : 'credit-card',
+        zipCode     : 'zip-code'
       }
     };
 
@@ -36,6 +37,12 @@
         format      : 'xxxx-xxxx-xxxx-xxxx',
         replaceChar : 'x',
         delimiter   : ' '
+      },
+
+      zipCode : {
+        format      : 'xxx-xxx',
+        replaceChar : 'x',
+        delimiter   : ' '
       }
     };
 
@@ -51,6 +58,10 @@
 
         case cons.formatType.creditCard:
           $(element).on('input', creditCartFormatter);
+          break;
+
+        case cons.formatType.zipCode:
+          $(element).on('input', zipCodeFormatter);
           break;
 
         default:
@@ -72,20 +83,24 @@
       $(e.currentTarget).val(parseString(value, options));
     }
 
+    function zipCodeFormatter(e) {
+      var value = e.currentTarget.value,
+          options = settings.zipCode;
+
+      $(e.currentTarget).val(parseString(value, options));
+    }
+
+    /**
+     * map regex
+     * */
     function parseString(value, options) {
       var valueFormatted = '',
           decade = 0;
 
-      // 1234567
-      //
-      // 123-4
-      // 123--45
-      // 123--45-6
-      // 123--45--67
       for(var i = 0; i < options.format.length && i < value.length; i++) {
         if(options.format[parseInt(i)] === options.replaceChar) {
           if(options.numbersOnly) {
-            valueFormatted += value[i] == parseInt(value[i], 10) ? value[i] : '';
+            valueFormatted += value[i] === parseInt(value[i], 10).toString() ? value[i] : '';
           } else {
             valueFormatted += value[i];
           }

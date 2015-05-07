@@ -7,10 +7,15 @@
     <script src="../bower_components/bootstrap/dist/css/bootstrap.css"></script>
 
     <!-- Load local jQuery. -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <!--<script src="../bower_components/jquery/dist/jquery.js"></script>-->
     <!-- Load local QUnit. -->
     <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" media="screen">
-    <script src="../bower_components/qunit/qunit/qunit.js"></script>
+    <!--<script src="../bower_components/qunit/qunit/qunit.js"></script>-->
+
+
+    <!--<script src="../bower_components/jquery/dist/jquery.js"></script>-->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- Load local lib and tests. -->
     <script src="../src/format-your-input.js"></script>
@@ -25,6 +30,7 @@
     <div id="qunit-fixture">
       <input type="text" data-format-type="phone-number">Phone number</input>
       <input type="text" data-format-type="credit-card">Credit card</input>
+      <input type="text" data-format-type="zip-code">Zip code</input>
     </div>
   </body>
 </html>
