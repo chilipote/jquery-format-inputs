@@ -13,7 +13,8 @@
   "repository": "chilipote/format-your-input",
   "license": "MIT",
   "scripts": {
-    "test": "grunt"
+    "grunt-test": "grunt test",
+    "test": "npm run grunt-test"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

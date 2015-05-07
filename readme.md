@@ -2,6 +2,8 @@
 
 > Format your values in your input with specific options
 
+[![Build Status](https://travis-ci.org/chilipote/jquery-format-inputs.svg?branch=master)](https://travis-ci.org/chilipote/jquery-format-inputs)
+
 
 ## Getting Started
 

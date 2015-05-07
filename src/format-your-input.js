@@ -20,7 +20,7 @@
     var defaults = {
       phoneNumber : {
         // to know how to format
-        format      : 'xxx-xxx-xxxx',
+        format      : 'x-xx---x',
 
         // to construct your own regex
         replaceChar : 'x',
@@ -33,7 +33,7 @@
       },
 
       creditCard : {
-        format      : 'xxxx-xxxx-xxxx',
+        format      : 'xxxx-xxxx-xxxx-xxxx',
         replaceChar : 'x',
         delimiter   : ' '
       }
@@ -41,7 +41,7 @@
 
     var settings = $.extend( true, {}, defaults, options );
 
-    function defineFormatingMethod(element) {
+    function defineFormattingMethod(element) {
 
       switch ( element.data('format-type') ) {
 
@@ -54,40 +54,39 @@
           break;
 
         default:
-          console.log('Warning, you are trying to format an input without specifying format type. use data-format-type attribute');
-          //throw 'Warning, you are trying to format an input without specifying format type. use data-format-type attribute';
+          throw 'Warning, you are trying to format an input without specifying format type. use data-format-type attribute';
       }
     }
 
     function phoneNumberFormatter(e) {
-      var value = e.currentTarget.value
-        , phoneNumberOptions = settings.phoneNumber
-        , valueFormatted = ''
-        , decade = 0;
+      var value = e.currentTarget.value,
+          options = settings.phoneNumber;
 
-      $(e.currentTarget).val(parseString(value, phoneNumberOptions));
+      $(e.currentTarget).val(parseString(value, options));
     }
 
     function creditCartFormatter(e) {
-      var value = e.currentTarget.value
-          , options = settings.creditCard
-          , valueFormatted = '';
+      var value = e.currentTarget.value,
+          options = settings.creditCard;
 
       $(e.currentTarget).val(parseString(value, options));
     }
 
     function parseString(value, options) {
-      var valueFormatted = ''
-        , decade = 0;
+      var valueFormatted = '',
+          decade = 0;
 
       for(var i = 0; i < options.format.length && i < value.length; i++) {
         if(options.format[parseInt(i)] === options.replaceChar) {
 
-          if(options.numbersOnly) valueFormatted += parseInt(value[i]) ? parseInt(value[i]) : '';
-          else valueFormatted += value[i];
+          if(options.numbersOnly) {
+            valueFormatted += parseInt(value[i]) ? parseInt(value[i]) : '';
+          } else {
+            valueFormatted += value[i];
+          }
 
         } else {
-          valueFormatted += options.delimiter;
+          valueFormatted += options.delimiter + value[i];
           decade = decade + 1;
         }
       }
@@ -96,10 +95,10 @@
     }
 
     this.each(function (i, element) {
-      defineFormatingMethod($(element));
+      defineFormattingMethod($(element));
     });
 
-    return this.each(function (i, element) {
+    return this.each(function() {
 
     });
 

@@ -1,7 +1,9 @@
 {
   "name": "format-your-input",
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "latest"
+  },
   "devDependencies": {
     "qunit": "~1.12.0",
     "jquery": "latest",
