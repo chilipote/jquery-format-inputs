@@ -1,6 +1,6 @@
 {
   "name": "format-your-input",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "jquery": "latest"
   },
@@ -8,5 +8,13 @@
     "qunit": "~1.12.0",
     "jquery": "latest",
     "bootstrap": "~3.3.4"
+  },
+  "authors": [
+    { "name": "Allan Bettarel", "email": "allan.bettarel@gmail.com" }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chilipote/jquery-format-inputs"
   }
+
 }

@@ -6,6 +6,7 @@
  * Licensed under the MIT license.
  */
 (function ($) {
+
   $.fn.formatInputs = function (options) {
 
     // A constant object
