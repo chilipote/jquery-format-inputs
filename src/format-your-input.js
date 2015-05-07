@@ -31,9 +31,11 @@
         // accept only numbers ?
         numbersOnly : true // 123-123-1234 or 123-123-DEMO
       },
+
       creditCard : {
-        // number of char before write a space
-        space:'4'
+        format      : 'xxxx-xxxx-xxxx',
+        replaceChar : 'x',
+        delimiter   : ' '
       }
     };
 
@@ -63,28 +65,34 @@
         , valueFormatted = ''
         , decade = 0;
 
-      for(var i = 0; i < phoneNumberOptions.format.length && i < value.length; i++) {
-        if(phoneNumberOptions.format[parseInt(i)] === phoneNumberOptions.format.replaceChar) {
+      $(e.currentTarget).val(parseString(value, phoneNumberOptions));
+    }
 
-          if(phoneNumberOptions.numbersOnly) valueFormatted += parseInt(value[i]) ? parseInt(value[i]) : '';
-          else valueFormatted += parseInt(value[i]) ? parseInt(value[i]) : '';
+    function creditCartFormatter(e) {
+      var value = e.currentTarget.value
+          , options = settings.creditCard
+          , valueFormatted = '';
+
+      $(e.currentTarget).val(parseString(value, options));
+    }
+
+    function parseString(value, options) {
+      var valueFormatted = ''
+        , decade = 0;
+
+      for(var i = 0; i < options.format.length && i < value.length; i++) {
+        if(options.format[parseInt(i)] === options.replaceChar) {
+
+          if(options.numbersOnly) valueFormatted += parseInt(value[i]) ? parseInt(value[i]) : '';
+          else valueFormatted += value[i];
 
         } else {
-          valueFormatted += phoneNumberOptions.delimiter;
+          valueFormatted += options.delimiter;
           decade = decade + 1;
         }
       }
 
-      $(e.currentTarget).val(valueFormatted);
-    }
-
-    function creditCartFormatter() {
-      console.log('you are in the creditCartFormatter fn');
-
-      var value = e.currentTarget.value;
-      var phoneNumberOptions = settings.creditCard;
-
-
+      return valueFormatted;
     }
 
     this.each(function (i, element) {

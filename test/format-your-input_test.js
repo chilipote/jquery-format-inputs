@@ -17,6 +17,10 @@
 
   test('adding a listener input on elements', function () {
     expect(1);
+
+    var oldValue = this.elems.find('[data-format-type=phone-number]')[0].val();
+    var oldValue = this.elems.find('[data-format-type=phone-number]')[0].val('');
+
     strictEqual(this.elems.formatInputs().text(), 'FormatYourInput0FormatYourInput1FormatYourInput2', 'should be FormatYourInput');
   });
 
