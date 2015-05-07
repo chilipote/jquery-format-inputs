@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Format-input Test Suite</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+
+    <!-- Load local jQuery. -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- Load local lib and tests. -->
+    <script src="src/format-your-input.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <a class="navbar-brand" href="#">Format input</a>
+        <p class="navbar-text">yeah</p>
+    </nav>
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-2">
+
+                <form action="">
+
+                    <div action="" class="form-group">
+                        <label for="">Credit Card</label>
+                        <input type="text" data-format-type="phone-number" class="form-control js-format-me"/>
+                    </div>
+
+                    <div action="" class="form-group">
+                        <label for="">Phone number</label>
+                        <input type="text" data-format-type="credit-card" class="form-control js-format-me"/>
+                    </div>
+
+                </form>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        $('.js-format-me').formatInputs();
+    </script>
+
+</body>
+
+</html>
