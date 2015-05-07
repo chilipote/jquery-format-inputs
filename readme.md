@@ -17,7 +17,7 @@ In your web page:
 <script src="dist/format-your-input.min.js"></script>
 <script>
   jQuery(function ($) {
-    $.awesome(); // "awesome"
+    $('.js-format-me').formatInputs();
   });
 </script>
 ```
